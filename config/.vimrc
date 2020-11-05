@@ -4,6 +4,12 @@ set tabstop=2
 set shiftwidth=2
 set noexpandtab
 
+" Text settings
+set textwidth=80
+
+" Line numbering
+set nu
+
 " Disable auto-insert of comments
 augroup auto_comment
   au!

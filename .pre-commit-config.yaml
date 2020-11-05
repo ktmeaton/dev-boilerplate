@@ -42,4 +42,4 @@ repos:
     rev: v0.23.1
     hooks:
       - id: markdownlint
-        args: [--config=.github/markdown_lint.yaml]
+        args: [--config=config/markdown_lint.yaml]
