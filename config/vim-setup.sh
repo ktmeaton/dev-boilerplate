@@ -21,4 +21,8 @@ git clone --depth=1 https://github.com/vim-syntastic/syntastic.git \
 
 # Download the NERDtree plugin
 git clone --depth 1 https://github.com/preservim/nerdtree.git \
-	~/.vim/bundle/nerdtree
+  ~/.vim/bundle/nerdtree
+
+# Download the VIm Markdown Preview plugin
+git clone --depth 1 https://github.com/JamshedVesuna/vim-markdown-preview.git \
+  ~/.vim/bundle/vim-markdown-preview

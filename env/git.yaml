@@ -1,8 +1,13 @@
 name: git-dev
 channels:
   - conda-forge
+  - anaconda
   - defaults
 dependencies:
+  - anaconda::python=3.8
+  - anaconda::pip=20.2.4
   - conda-forge::git=2.29.2
   - conda-forge::pre-commit=2.6.0
   - conda-forge::nodejs=14.14.0
+  - pip:
+    - grip==4.5.2

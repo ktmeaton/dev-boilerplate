@@ -1,97 +1,102 @@
-# dev-boilerplate
+# Dev Boilerplate
 
 Boilerplate code to set up my favorite development environments.
 
 ## Table of Contents
 
-1. Repository Contents
-   - Environments
-   - Configuration
-   - Workflows
-2. Setup
+1. [Repository Contents](https://github.com/ktmeaton/dev-boilerplate#1-repository-contents)
+   - [Environments](https://github.com/ktmeaton/dev-boilerplate#1a-environments)
+   - [Configuration](https://github.com/ktmeaton/dev-boilerplate#1b-configuration)
+   - [Workflows](https://github.com/ktmeaton/dev-boilerplate#1c-workflows)
+2. [Setup](https://github.com/ktmeaton/dev-boilerplate#2-setup)
 
 ## 1. Repository Contents
 
-### Environments (env)
+### 1a. Environments
 
-- conda environments:
-  - conda
-  - python
-  - git
-  - markdown
+```text
+📂env
+ ┣ 📜 git.yaml
+ ┣ 📜 python.yaml
+ ┗ 📜 merge.yaml
+```
 
-### Configuration (config)
+### 1b. Configuration
 
-- vim
-  - vim-setup.sh
-  - .vimrc
-- zsh
-  - zsh-setup.sh
-  - .zshrc
-- bash
-  - .bashrc
-- .pre-commit-config.yaml
-- setup.cfg
+```text
+📂config
+ ┣ 📜 vim-setup.sh
+ ┣ 📜 .vimrc
+ ┣ 📜 zsh-setup.sh
+ ┣ 📜 .zshrc
+ ┣ 📜 setup.cfg
+ ┗ 📜 .pre-commit-config.yaml
+```
 
-### Workflows (.github/workflows)
+### 1c. Workflows
 
-- environments.yaml
+```text
+📂.github
+ ┗📂 workflows
+  ┗ 📜 environments.yaml
+```
 
 ## 2. Setup
 
-### Environments
+### 2a. Environments
 
-Install conda
+#### Install conda
 
 ```bash
 config/conda-setup.sh
 ```
 
-Create individual conda environments.
+#### Create individual conda environments
 
 ```bash
 mamba env create -f env/python.yaml;
-mamba env create -f env/git.yaml;
-mamba run -n git-dev npm install -g markdownlint-cli@0.24.0
+mamba env create -f env/git.yaml && \
+  mamba run -n git-dev npm install -g markdownlint-cli@0.24.0;
 ```
 
-Create a merged conda environment.
+#### Create a merged conda environment
 
 ```bash
 # Merge desired environment files
-conda-merge \
-  env/python.yaml \
-  env/git.yaml \
-  head --lines=-1 | \
-  sed -e '$aname: merge-dev' \
-  > env/merge.yaml
+conda-merge env/python.yaml env/git.yaml head --lines=-1 | \
+  sed -e '$aname: merge-dev' > env/merge.yaml;
 
 # Create and activate environment
-mamba env create -f env/merge.yaml;
-conda run -n merge-dev npm install -g markdownlint-cli@0.24.0
+mamba env create -f env/merge.yaml && \
+  conda run -n merge-dev npm install -g markdownlint-cli@0.24.0
 ```
 
-### Configuration
+### 2b. Configuration
 
-Vim
+#### Vim
 
 ```bash
 conda activate git-dev;
 bash config/vim-setup.sh;
 ```
 
-Pre-commit
+#### Pre-commit
 
 ```bash
 conda activate git-dev;
-pre-commit install;
-pre-commit install-hooks;
+pre-commit install && pre-commit install-hooks;
 pre-commit run --all-files;
 ```
 
-Zsh
+#### Zsh
 
 ```bash
 conda activate git-dev;
 bash config/zsh-setup.sh;
+```
+
+#### Grip
+
+```bash
+grip --user ${GITHUB_USERNAME}
 ```

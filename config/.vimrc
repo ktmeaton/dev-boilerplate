@@ -31,6 +31,10 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_markdown_mdl_exec = "markdownlint"
 let g:syntastic_markdown_mdl_args = ""
 
+" Grip
+
+let vim_markdown_preview_github=1
+
 " Toggles
 set pastetoggle=<F2>
 nmap <F6> :NERDTreeToggle<CR>
