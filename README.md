@@ -1,4 +1,5 @@
 # dev-boilerplate
+
 Boilerplate code to set up my favorite development environments.
 
 ## Table of Contents
@@ -6,7 +7,7 @@ Boilerplate code to set up my favorite development environments.
 1. Repository Contents
    - Environments
    - Configuration
-   -  Workflows
+   - Workflows
 2. Setup
 
 ## 1. Repository Contents
@@ -23,10 +24,10 @@ Boilerplate code to set up my favorite development environments.
 
 - vim
   - vim-setup.sh
-	- .vimrc
+  - .vimrc
 - zsh
   - zsh-setup.sh
-	- .zshrc
+  - .zshrc
 - bash
   - .bashrc
 - .pre-commit-config.yaml
@@ -46,6 +47,7 @@ Create individual conda environments.
 conda env create -f env/conda.yaml
 conda env create -f env/python.yaml;
 conda env create -f env/git.yaml;
+conda run -n git-dev npm install -g markdownlint-cli@0.24.0
 ```
 
 Create a merged conda environment.
@@ -58,14 +60,15 @@ conda activate conda-dev;
 # Merge desired environment files
 conda-merge \
   env/python.yaml \
-	env/git.yaml \
-	env/conda.yaml | \
+  env/git.yaml \
+  env/conda.yaml | \
   head --lines=-1 | \
   sed -e '$aname: merge-dev' \
   > env/merge.yaml
 
 # Create and activate environment
 mamba env create -f env/merge.yaml;
+conda run -n merge-dev npm install -g markdownlint-cli@0.24.0
 ```
 
 ### Configuration
@@ -73,6 +76,15 @@ mamba env create -f env/merge.yaml;
 Vim
 
 ```bash
-conda activate merge-dev;
+conda activate git-dev;
 config/vim-setup.sh;
+```
+
+Pre-commit
+
+```bash
+conda activate git-dev;
+pre-commit install;
+pre-commit install-hooks;
+pre-commit run --all-files;
 ```

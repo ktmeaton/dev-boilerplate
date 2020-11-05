@@ -5,3 +5,4 @@ channels:
 dependencies:
   - conda-forge::git=2.29.2
   - conda-forge::pre-commit=2.6.0
+  - conda-forge::nodejs=14.14.0
