@@ -1,0 +1,7 @@
+name: git-dev
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - conda-forge::git=2.29.2
+  - conda-forge::pre-commit=2.6.0
