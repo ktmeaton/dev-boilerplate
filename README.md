@@ -88,3 +88,10 @@ pre-commit install;
 pre-commit install-hooks;
 pre-commit run --all-files;
 ```
+
+Zsh
+
+```bash
+conda activate git-dev;
+bash config/zsh-setup.sh;
+```
