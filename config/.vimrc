@@ -10,11 +10,10 @@ augroup auto_comment
 	au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 augroup END
 
-" Toggles
-set pastetoggle=<F2>
-
 " Plugins
 execute pathogen#infect()
+
+" NERDTree
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 
@@ -31,3 +30,7 @@ let g:syntastic_check_on_wq = 0
 " Syntatistic markdown checker
 let g:syntastic_markdown_mdl_exec = "markdownlint"
 let g:syntastic_markdown_mdl_args = ""
+
+" Toggles
+set pastetoggle=<F2>
+nmap <F6> :NERDTreeToggle<CR>
