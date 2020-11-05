@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Copy the repo config file
+yes | cp -f config/.vimrc ~/.vimrc;
+
 # Create the directories for plugins
 mkdir -p ~/.vim/pack/vendor/start \
          ~/.vim/autoload \

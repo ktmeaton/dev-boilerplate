@@ -41,27 +41,27 @@ Boilerplate code to set up my favorite development environments.
 
 ### Environments
 
+Install conda
+
+```bash
+config/conda-setup.sh
+```
+
 Create individual conda environments.
 
 ```bash
-conda env create -f env/conda.yaml
-conda env create -f env/python.yaml;
-conda env create -f env/git.yaml;
-conda run -n git-dev npm install -g markdownlint-cli@0.24.0
+mamba env create -f env/python.yaml;
+mamba env create -f env/git.yaml;
+mamba run -n git-dev npm install -g markdownlint-cli@0.24.0
 ```
 
 Create a merged conda environment.
 
 ```bash
-# Create the conda-dev environment to access to conda-merge and mamba.
-conda env create -f env/conda.yaml;
-conda activate conda-dev;
-
 # Merge desired environment files
 conda-merge \
   env/python.yaml \
   env/git.yaml \
-  env/conda.yaml | \
   head --lines=-1 | \
   sed -e '$aname: merge-dev' \
   > env/merge.yaml
@@ -77,7 +77,7 @@ Vim
 
 ```bash
 conda activate git-dev;
-config/vim-setup.sh;
+bash config/vim-setup.sh;
 ```
 
 Pre-commit

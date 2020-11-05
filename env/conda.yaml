@@ -1,7 +1,0 @@
-name: conda-dev
-channels:
-  - conda-forge
-  - defaults
-dependencies:
-  - conda-forge::mamba=0.6.4
-  - conda-forge::conda-merge=0.1.5
