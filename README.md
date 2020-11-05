@@ -98,6 +98,23 @@ bash config/zsh-setup.sh;
 
 #### Grip
 
+On a local computer:
+
 ```bash
-grip --user ${GITHUB_USERNAME}
+grip --pass ${GRIP_TOKEN} README.md localhost:8080
 ```
+
+Over an ssh connection:
+
+```bash
+# Connect to the login node
+ssh -L 8080:localhost:8080 username@info.mcmaster.ca
+
+# Connect to a compute node
+ssh -L 8080:localhost:8080 info114
+
+# Activate the environment
+conda activate git-dev
+
+# Start grip server
+grip --pass ${GRIP_TOKEN} README.md localhost:8080
