@@ -1,0 +1,13 @@
+channels:
+- conda-forge
+- defaults
+dependencies:
+- conda-forge::black=19.10b0
+- conda-forge::conda-merge=0.1.5
+- conda-forge::flake8-bugbear=20.1.4
+- conda-forge::flake8=3.8.3
+- conda-forge::git=2.29.2
+- conda-forge::mamba=0.6.4
+- conda-forge::pre-commit=2.6.0
+- conda-forge::python=3.8
+name: merge-dev

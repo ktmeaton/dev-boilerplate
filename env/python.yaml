@@ -1,7 +1,7 @@
 name: python-dev
 channels:
   - conda-forge
-  - default
+  - defaults
 dependencies:
   - conda-forge::python=3.8
   - conda-forge::flake8=3.8.3
