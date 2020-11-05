@@ -35,7 +35,7 @@ Boilerplate code to set up my favorite development environments.
 
 ### Workflows (.github/workflows)
 
-- env
+- environments.yaml
 
 ## 2. Setup
 
