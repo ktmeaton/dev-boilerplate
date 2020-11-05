@@ -63,7 +63,8 @@ mamba env create -f env/git.yaml && \
 
 ```bash
 # Merge desired environment files
-conda-merge env/python.yaml env/git.yaml head --lines=-1 | \
+conda-merge env/python.yaml env/git.yaml | \
+  head --lines=-1 | \
   sed -e '$aname: merge-dev' > env/merge.yaml;
 
 # Create and activate environment
