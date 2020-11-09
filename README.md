@@ -54,7 +54,8 @@ config/conda-setup.sh
 #### Create individual conda environments
 
 ```bash
-mamba env create -f env/python.yaml;
+mamba env create -f env/python.yaml && \
+  mamba run -n python-dev jupyter labextension install jupyterlab-plotly@4.12.0;
 mamba env create -f env/git.yaml && \
   mamba run -n git-dev npm install -g markdownlint-cli@0.24.0;
 ```
@@ -69,7 +70,8 @@ conda-merge env/python.yaml env/git.yaml | \
 
 # Create and activate environment
 mamba env create -f env/merge.yaml && \
-  conda run -n merge-dev npm install -g markdownlint-cli@0.24.0
+  mamba run -n merge-dev jupyter labextension install jupyterlab-plotly@4.12.0 && \
+  mamba run -n merge-dev npm install -g markdownlint-cli@0.24.0;
 ```
 
 ### 2b. Configuration
@@ -108,10 +110,10 @@ Over an ssh connection:
 
 ```bash
 # Connect to the login node
-ssh -L 8080:localhost:8080 username@info.mcmaster.ca
+ssh -L 8080:localhost:8080 username@loginnode.com
 
 # Connect to a compute node
-ssh -L 8080:localhost:8080 info114
+ssh -L 8080:localhost:8080 computenode
 
 # Activate the environment
 conda activate git-dev
