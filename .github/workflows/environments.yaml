@@ -33,11 +33,11 @@ jobs:
       #------------------------------------------------------------------------#
       # Setup conda with mamba
       - name: setup conda
-        uses: goanpeca/setup-miniconda@v2
+        uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: true
-          # mamba-version: "*"
-          # channels: conda-forge
+          mamba-version: "*"
+          channels: conda-forge
       # Install environment
       - name: create conda env
-        run: conda env create -f env/conda.yaml
+        run: mamba env create -f env/conda.yaml
