@@ -13,3 +13,4 @@ dependencies:
   - conda-forge::numpy=1.19.1
   - conda-forge::plotly=4.12.0
   - conda-forge::ipywidgets=7.5.1
+  - conda-forge::nodejs=13.13.0
