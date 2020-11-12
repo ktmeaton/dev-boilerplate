@@ -38,6 +38,8 @@ jobs:
           auto-update-conda: true
           mamba-version: "*"
           channels: conda-forge
-      # Install environment
-      - name: create conda env
-        run: mamba env create -f env/conda.yaml
+      # Install environments
+      - name: create python env
+        run: mamba env create -f env/python.yaml
+      - name: create git env
+        run: mamba env create -f env/git.yaml
