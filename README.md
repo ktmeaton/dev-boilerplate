@@ -43,12 +43,20 @@ Boilerplate code to set up my favorite development environments.
 
 ## 2. Setup
 
+Clone repository:
+
+```bash
+git clone https://github.com/ktmeaton/dev-boilerplate.git
+cd dev-boilerplate
+```
+
 ### 2a. Environments
 
 #### Install conda
 
 ```bash
-config/conda-setup.sh
+bash config/conda-setup.sh
+conda --version
 ```
 
 #### Create individual conda environments
