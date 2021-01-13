@@ -9,5 +9,8 @@ dependencies:
   - conda-forge::git=2.29.2
   - conda-forge::pre-commit=2.6.0
   - conda-forge::nodejs=13.13.0
+  - anaconda::make=4.2.1
+  - anaconda::gcc_impl_linux-64=7.3.0
+  - anaconda::gcc_linux-64=7.3.0
   - pip:
     - grip==4.5.2
