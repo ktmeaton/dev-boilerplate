@@ -19,3 +19,5 @@ yes | conda install -c conda-forge mamba=0.6.4 conda-merge=0.1.5
 # Add conda-merge to path
 echo 'alias conda-merge="~/miniconda3/bin/conda-merge"' >> ~/.`basename $SHELL`rc
 source ~/.`basename $SHELL`rc
+
+echo "Run source ~/.`basename $SHELL`rc for changes to take effect."

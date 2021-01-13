@@ -68,20 +68,6 @@ mamba env create -f env/git.yaml && \
   mamba run -n git-dev npm install -g markdownlint-cli@0.24.0;
 ```
 
-#### Create a merged conda environment
-
-```bash
-# Merge desired environment files
-conda-merge env/python.yaml env/git.yaml | \
-  head --lines=-1 | \
-  sed -e '$aname: merge-dev' > env/merge.yaml;
-
-# Create and activate environment
-mamba env create -f env/merge.yaml && \
-  mamba run -n merge-dev jupyter labextension install jupyterlab-plotly@4.12.0 && \
-  mamba run -n merge-dev npm install -g markdownlint-cli@0.24.0;
-```
-
 ### 2b. Configuration
 
 #### Vim
