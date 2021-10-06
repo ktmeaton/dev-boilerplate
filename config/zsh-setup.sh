@@ -4,8 +4,8 @@
 bin_res=`grep "PATH.*\($HOME/bin\)" ~/.bashrc`
 
 # If not in PATH
-if [[ -z ${bin_res} ]]; 
-then 
+if [[ -z ${bin_res} ]];
+then
 	  echo "Creating and adding $HOME/bin to PATH" \
 		&& mkdir -p $HOME/bin \
 		&& echo "export PATH=$HOME/bin:\$PATH" >> ~/.bashrc \
