@@ -61,11 +61,27 @@ conda --version
 
 #### Create individual conda environments
 
+General (Required)
+
+```bash
+mamba env create -f env/git.yaml && \
+  mamba run -n git-dev npm install -g markdownlint-cli@0.24.0;
+
+# Create symlinks to recognize compiler$HOME/miniconda3/envs/git-dev/bin/x86_64-conda_cos6-linux-gnu-gccs
+ln -s \
+  $HOME/miniconda3/envs/git-dev/bin/x86_64-conda_cos6-linux-gnu-gcc \
+  $HOME/miniconda3/envs/git-dev/bin/gcc
+
+ln -s \
+  $HOME/miniconda3/envs/git-dev/bin/x86_64-conda_cos6-linux-gnu-g++ \
+  $HOME/miniconda3/envs/git-dev/bin/g++
+```
+
+Python Development (Optional)
+
 ```bash
 mamba env create -f env/python.yaml && \
   mamba run -n python-dev jupyter labextension install jupyterlab-plotly@4.12.0;
-mamba env create -f env/git.yaml && \
-  mamba run -n git-dev npm install -g markdownlint-cli@0.24.0;
 ```
 
 ### 2b. Configuration

@@ -12,5 +12,6 @@ dependencies:
   - anaconda::make=4.2.1
   - anaconda::gcc_impl_linux-64=7.3.0
   - anaconda::gcc_linux-64=7.3.0
+  - anaconda::gxx_linux-64=7.3.0
   - pip:
     - grip==4.5.2
